@@ -1,77 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #fbe9f7, #ffe0f0);
   min-height: 100vh;
   margin: 0;
   padding: 0;
 }
 
+/* Navbar */
 .navbar {
   background-color: #ff69b4;
-  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
-}
-.navbar-brand {
-  font-weight: bold;
-  font-size: 1.6rem;
 }
 
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.7rem;
+}
+
+/* Card */
 .card {
   border-radius: 20px;
   border: none;
-  box-shadow: 0 12px 25px rgba(255, 105, 180, 0.3);
+  box-shadow:
+    inset 0 0 10px rgba(255, 182, 193, 0.4),
+    0 8px 20px rgba(255, 105, 180, 0.3);
   background-color: #fff0f5;
-  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(255, 105, 180, 0.5);
+}
+
+/* Naslov kartice */
 .card-title {
   color: #ff1493;
   font-weight: 600;
   text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Dekorativna linija ispod naslova */
+.decorative-line {
+  text-align: center;
   font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #ff1493;
+}
+
+/* Lista zadataka */
+#taskList {
+  padding: 0 10px;
+  margin-top: 20px;
 }
 
 .list-group-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 12px;
+  border-radius: 10px;
   margin-bottom: 8px;
-  padding: 14px 18px;
-  background-color: #ffe0f7;
+  padding: 12px 16px;
+  background-color: #fff0f5;
+  transition: all 0.3s ease;
   font-size: 1rem;
   opacity: 0;
   transform: translateY(-10px);
   animation: fadeIn 0.4s forwards;
-  transition: transform 0.2s, background-color 0.2s;
 }
+
 .list-group-item:hover {
-  transform: scale(1.03);
-  background-color: #ffc0e0;
+  background-color: #ffe0f7;
+  transform: scale(1.02);
 }
 
 .completed {
   text-decoration: line-through;
   color: #b0b0b0;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+/* Input polje */
+#taskInput {
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 1.1rem;
+}
+
+.form-control:focus {
+  border-color: #ff69b4;
+  box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+}
+
+/* Dugmad */
+.btn-success {
+  background: linear-gradient(45deg, #ff69b4, #ff1493);
+  border: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-success:hover {
+  background: linear-gradient(45deg, #ff1493, #ff69b4);
+  transform: scale(1.1);
 }
 
 .btn-outline-success {
   border-color: #ff69b4;
   color: #ff69b4;
 }
+
 .btn-outline-success:hover {
   background-color: #ff69b4;
   color: white;
   transform: scale(1.1);
+  transition: 0.2s;
 }
 
 .btn-outline-danger {
   border-color: #ff1493;
   color: #ff1493;
 }
+
 .btn-outline-danger:hover {
   background-color: #ff1493;
   color: white;
   transform: scale(1.1);
+  transition: 0.2s;
 }
 
 @keyframes fadeIn {
@@ -81,35 +143,15 @@ body {
   }
 }
 
-.fade-out {
-  opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.3s ease-out;
-}
-
-.form-control:focus {
-  border-color: #ff69b4;
-  box-shadow: 0 0 6px rgba(255, 105, 180, 0.5);
-}
-
-.btn-success {
-  background-color: #ff69b4;
-  border: none;
-  font-weight: bold;
-  font-size: 1rem;
-}
-.btn-success:hover {
-  background-color: #ff1493;
-  transform: scale(1.05);
-}
-
+/* Responsive */
 @media (max-width: 576px) {
   .card {
     margin: 0 10px;
-    padding: 15px;
   }
+
   .list-group-item {
     font-size: 0.9rem;
     padding: 10px;
   }
 }
+
