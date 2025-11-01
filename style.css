@@ -1,19 +1,34 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa; /* svijetla pozadina */
+  background: linear-gradient(135deg, #fbe9f7, #ffe0f0);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
-/* ======== Kartica (Bootstrap card) ======== */
+/* ======== Navbar ======== */
+.navbar {
+  background-color: #ff69b4; /* pink navbar */
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* ======== Kartica (card) ======== */
 .card {
-  border-radius: 10px;
+  border-radius: 20px;
   border: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+  background-color: #fff0f5; /* light pink */
 }
 
-/* ======== Naslov unutar kartice ======== */
+/* Naslov kartice */
 .card-title {
-  color: #0d6efd; /* Bootstrap plava */
+  color: #ff1493; /* deep pink */
   font-weight: 600;
+  text-align: center;
 }
 
 /* ======== Lista zadataka ======== */
@@ -21,43 +36,53 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background-color 0.3s ease;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  padding: 12px 16px;
+  background-color: #fff0f5;
+  transition: all 0.3s ease;
+  font-size: 1rem;
 }
 
 /* Hover efekat za listu */
 .list-group-item:hover {
-  background-color: #f1f1f1;
+  background-color: #ffe0f7;
+  transform: scale(1.02);
 }
 
 /* ======== Stil za završen zadatak ======== */
 .completed {
   text-decoration: line-through;
-  color: gray;
+  color: #b0b0b0;
   transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 /* ======== Dugmad ======== */
+.btn-outline-success {
+  border-color: #ff69b4;
+  color: #ff69b4;
+}
+
 .btn-outline-success:hover {
-  background-color: #198754;
+  background-color: #ff69b4;
   color: white;
-  transform: scale(1.05);
+  transform: scale(1.1);
   transition: 0.2s;
+}
+
+.btn-outline-danger {
+  border-color: #ff1493;
+  color: #ff1493;
 }
 
 .btn-outline-danger:hover {
-  background-color: #dc3545;
+  background-color: #ff1493;
   color: white;
-  transform: scale(1.05);
+  transform: scale(1.1);
   transition: 0.2s;
 }
 
-/* ======== Animacija brisanja zadatka ======== */
-.fade-out {
-  opacity: 0;
-  transition: opacity 0.3s ease-out;
-}
-
-/* ======== Animacija dodavanja zadatka ======== */
+/* Dodavanje zadatka animacija */
 .list-group-item {
   opacity: 0;
   transform: translateY(-10px);
@@ -68,5 +93,41 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Brisanje zadatka animacija */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+/* ======== Input polje ======== */
+.form-control:focus {
+  border-color: #ff69b4;
+  box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+}
+
+/* ======== Dugme dodavanja ======== */
+.btn-success {
+  background-color: #ff69b4;
+  border: none;
+  font-weight: bold;
+}
+
+.btn-success:hover {
+  background-color: #ff1493;
+  transform: scale(1.05);
+}
+
+/* ======== Responsive ======== */
+@media (max-width: 576px) {
+  .card {
+    margin: 0 10px;
+  }
+
+  .list-group-item {
+    font-size: 0.9rem;
+    padding: 10px;
   }
 }
