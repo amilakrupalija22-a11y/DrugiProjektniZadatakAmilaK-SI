@@ -3,53 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HealthyHabits - Kontakt</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <title>Kontakt 💕</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Navigacija -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Moja Slatka To-Do Lista 💖</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Početna</a></li>
+          <li class="nav-item"><a class="nav-link" href="notes.html">Bilješke</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">O aplikaciji</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">HealthyHabits</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Početna</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">O nama</a></li>
-        <li class="nav-item"><a class="nav-link" href="recipes.html">Recepti</a></li>
-        <li class="nav-item"><a class="nav-link active" href="contact.html">Kontakt</a></li>
-      </ul>
+  <!-- Kontakt forma -->
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow">
+          <div class="card-body">
+            <h4 class="card-title mb-4 text-center">Kontaktiraj nas 💌</h4>
+            <form id="contactForm" novalidate>
+              <div class="mb-3">
+                <label for="name" class="form-label">Ime i prezime</label>
+                <input type="text" id="name" class="form-control" placeholder="Unesi svoje ime" required>
+                <div class="invalid-feedback">Unesi svoje ime.</div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email adresa</label>
+                <input type="email" id="email" class="form-control" placeholder="Unesi email" required>
+                <div class="invalid-feedback">Unesi ispravan email.</div>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Poruka</label>
+                <textarea id="message" class="form-control" rows="4" placeholder="Tvoja poruka..." required></textarea>
+                <div class="invalid-feedback">Unesi poruku.</div>
+              </div>
+              <button type="submit" class="btn btn-success w-100">💖 Pošalji poruku</button>
+            </form>
+            <div id="formMessage" class="text-center mt-3 fw-bold text-success" style="display:none;">
+              Hvala na poruci! 🌷
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</nav>
 
-<div class="container my-5">
-  <h2 class="text-center mb-4">Kontaktirajte nas</h2>
-  <form id="contactForm" class="col-md-6 mx-auto">
-    <div class="mb-3">
-      <label for="name" class="form-label">Ime i prezime</label>
-      <input type="text" class="form-control" id="name" placeholder="Unesite vaše ime">
-    </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">E-mail</label>
-      <input type="email" class="form-control" id="email" placeholder="Unesite e-mail">
-    </div>
-    <div class="mb-3">
-      <label for="message" class="form-label">Poruka</label>
-      <textarea class="form-control" id="message" rows="4" placeholder="Vaša poruka"></textarea>
-    </div>
-    <button type="submit" class="btn btn-success w-100">Pošalji</button>
-  </form>
-</div>
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const form = document.getElementById("contactForm");
+    const messageBox = document.getElementById("formMessage");
 
-<footer class="text-center p-3 bg-success text-white">
-  <p>&copy; 2025 HealthyHabits</p>
-</footer>
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-<script src="js/script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      // Validacija polja
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+      const message = document.getElementById("message");
+
+      let isValid = true;
+
+      [name, email, message].forEach(input => {
+        if (!input.value.trim()) {
+          input.classList.add("is-invalid");
+          isValid = false;
+        } else {
+          input.classList.remove("is-invalid");
+        }
+      });
+
+      if (!isValid) return;
+
+      // Uspješna poruka
+      form.reset();
+      messageBox.style.display = "block";
+      setTimeout(() => {
+        messageBox.style.display = "none";
+      }, 3000);
+    });
+  </script>
 </body>
 </html>
+
